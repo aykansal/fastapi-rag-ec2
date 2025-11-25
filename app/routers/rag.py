@@ -1,28 +1,11 @@
 """RAG router providing ingestion, query, and cache endpoints."""
 
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, HttpUrl
+from fastapi import APIRouter, File, HTTPException, UploadFile
 
-from app import rag as rag_service
+from app.lib import rag as rag_service
+from app.models.routers import QueryRequest, QueryResponse, IngestRequest, IngestResponse
 
 router = APIRouter(prefix="/rag", tags=["rag"])
-
-
-class QueryRequest(BaseModel):
-    question: str
-
-
-class QueryResponse(BaseModel):
-    answer: str
-
-
-class IngestRequest(BaseModel):
-    url: HttpUrl
-
-
-class IngestResponse(BaseModel):
-    message: str
-    chunks_created: int
 
 
 @router.post("/query", response_model=QueryResponse)

@@ -1,6 +1,6 @@
 """FastAPI application entrypoint."""
 
-from fastapi import APIRouter, FastAPI
+from fastapi import FastAPI
 
 from app.routers.rag import router as rag_router
 
