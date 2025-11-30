@@ -1,5 +1,5 @@
 # fastapi-rag-ec2
-
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/aykansal/fastapi-rag-ec2)
 # Regular Start
 ```bash
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
